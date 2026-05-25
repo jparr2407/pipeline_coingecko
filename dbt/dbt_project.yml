@@ -1,0 +1,21 @@
+name: coingecko_analytics
+version: "1.0.0"
+config-version: 2
+
+profile: coingecko_analytics
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  coingecko_analytics:
+    staging:
+      +schema: staging
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table

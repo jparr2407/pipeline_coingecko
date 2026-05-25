@@ -1,0 +1,5 @@
+logs/
+plugins/
+dags/
+__pycache__/
+*.py[cod]

@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: "{{ env_var('WAREHOUSE_DB', 'crypto_warehouse') }}"
+    schema: raw
+    tables:
+      - name: coingecko_markets
+      - name: coingecko_markets_run
+      - name: coingecko_market_chart
+      - name: coingecko_market_chart_run

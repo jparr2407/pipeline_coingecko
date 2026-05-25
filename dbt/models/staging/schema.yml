@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: stg_coingecko_markets
+    description: Snapshot raw normalizado de /coins/markets.
+    columns:
+      - name: run_id
+        tests:
+          - not_null
+      - name: coin_id
+        tests:
+          - not_null
+      - name: vs_currency
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["usd"]
+      - name: current_price
+        tests:
+          - non_negative
+      - name: market_cap
+        tests:
+          - non_negative
+      - name: total_volume
+        tests:
+          - non_negative
+
+  - name: stg_coingecko_market_chart
+    description: Historico diario normalizado do endpoint market_chart.
+    columns:
+      - name: run_id
+        tests:
+          - not_null
+      - name: coin_id
+        tests:
+          - not_null
+      - name: observed_date
+        tests:
+          - not_null
+      - name: vs_currency
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["usd"]
+      - name: price
+        tests:
+          - not_null
+          - non_negative
+      - name: market_cap
+        tests:
+          - non_negative
+      - name: total_volume
+        tests:
+          - non_negative

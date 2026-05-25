@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: dim_coins
+    description: Dimensao de moedas com atributos mais recentes.
+    columns:
+      - name: coin_id
+        tests:
+          - not_null
+          - unique
+      - name: symbol
+        tests:
+          - not_null
+
+  - name: fct_latest_market_snapshot
+    description: Snapshot mais recente por moeda e moeda base.
+    columns:
+      - name: market_snapshot_key
+        tests:
+          - not_null
+          - unique
+      - name: coin_id
+        tests:
+          - not_null
+      - name: vs_currency
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["usd"]
+      - name: current_price
+        tests:
+          - non_negative
+      - name: market_cap
+        tests:
+          - non_negative
+      - name: total_volume
+        tests:
+          - non_negative
+
+  - name: fct_coin_market_daily
+    description: Historico diario de preco, volume, market cap e variacao percentual.
+    columns:
+      - name: coin_market_daily_key
+        tests:
+          - not_null
+          - unique
+      - name: coin_id
+        tests:
+          - not_null
+      - name: observed_date
+        tests:
+          - not_null
+      - name: vs_currency
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["usd"]
+      - name: avg_price
+        tests:
+          - not_null
+          - non_negative
+      - name: avg_market_cap
+        tests:
+          - non_negative
+      - name: avg_total_volume
+        tests:
+          - non_negative

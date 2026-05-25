@@ -1,0 +1,12 @@
+[project]
+name = "pipeline-coin-gecko"
+version = "0.1.0"
+description = "Pipeline local CoinGecko com Airflow, Postgres, dbt e Power BI."
+requires-python = ">=3.11"
+dependencies = [
+    "psycopg2-binary==2.9.10",
+    "requests==2.32.3",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
