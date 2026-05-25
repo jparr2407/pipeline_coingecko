@@ -2,6 +2,9 @@
 
 Pipeline local de analytics engineering para coletar dados da API CoinGecko, armazenar em PostgreSQL, transformar com dbt e consumir no Power BI.
 
+## Fluxo
+<img width="1717" height="916" alt="imagem_estrutura_coingecko" src="https://github.com/user-attachments/assets/046417a3-b41a-4e3b-bec7-fa81e1f64c04" />
+
 ## Stack
 
 - Docker Compose
